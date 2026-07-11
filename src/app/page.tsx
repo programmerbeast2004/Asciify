@@ -171,7 +171,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <a href="https://github.com/programmerbeast2004/asciify" target="_blank" rel="noreferrer" className="group relative flex items-center gap-2 px-5 py-2 rounded-sm bg-[#111] text-amber-500 border border-amber-700/50 font-semibold text-sm hover:bg-amber-500 hover:text-black transition-all duration-150">
+            <a href="https://github.com/programmerbeast2004/Asciify" target="_blank" rel="noreferrer" className="group relative flex items-center gap-2 px-5 py-2 rounded-sm bg-[#111] text-amber-500 border border-amber-700/50 font-semibold text-sm hover:bg-amber-500 hover:text-black transition-all duration-150">
               <GitBranch className="w-4 h-4" />
               <span className="hidden sm:inline">Contribute</span>
             </a>

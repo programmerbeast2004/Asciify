@@ -59,7 +59,8 @@ export async function imageToAscii(imageUrl: string, options: AsciiOptions = {})
       const asciiFrames: ColoredChar[][][] = [];
       
       for (const frame of frames) {
-        const { width: fWidth, height: fHeight, patch } = frame;
+        const { width: fWidth, height: fHeight } = frame.dims;
+        const patch = frame.patch;
         const aspectRatio = fWidth / fHeight;
         const outHeight = Math.round(width / aspectRatio * 0.54);
         
