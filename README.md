@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
+  <img src="https://raw.githubusercontent.com/programmerbeast2004/Asciify/main/src/app/icon.svg" width="120" height="120" alt="Asciify Logo" />
+  <h1>Asciify</h1>
+  <p><strong>Elevate your GitHub README with beautiful, customizable, and animated ASCII art profile cards.</strong></p>
+</div>
 
-## Getting Started
+<br />
 
-First, run the development server:
+<div align="center">
+  <img src="https://github.com/programmerbeast2004/Asciify/assets/placeholder.gif" alt="Asciify Demo" width="800" />
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<br />
+
+## ✨ Features
+
+- 🎨 **100% SVG & CSS Animations**: No external images, ensuring perfect compatibility with GitHub's strict Markdown Camo proxy.
+- ⚡ **Zero Database Needed**: Everything is generated dynamically on the fly via URL parameters.
+- 🖼️ **Image to ASCII Magic**: Automatically converts your GitHub avatar (or any custom image URL) into beautiful colored ASCII art.
+- 🛠️ **Deeply Customizable**: Add custom fields, change themes, toggle borders, adjust animation speeds, and hide specific data blocks.
+- 🕶️ **Live Preview Editor**: Includes a stunning dark-mode GUI to configure your card visually and instantly copy the markdown code.
+
+## 🚀 Usage
+
+Using Asciify is as simple as adding an image tag to your GitHub `README.md`. You don't need to install anything!
+
+```markdown
+![Asciify Card](https://<your-vercel-domain>.vercel.app/api/card?username=programmerbeast2004&theme=dark)
+```
+*(Note: Replace `<your-vercel-domain>` with your actual deployed Vercel URL, and swap out the username!)*
+
+## 🎨 URL Customization Parameters
+
+You can append these parameters to the API URL to deeply customize your card:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `username` | string | *required* | Your GitHub username to fetch stats and avatar. |
+| `theme` | string | `dark` | Pre-built color themes: `dark`, `light`, `hacker`, `dracula`, `monokai`. |
+| `text_color` | hex | (theme based) | Override the primary text color (e.g., `%23d97706`). |
+| `card_font` | string | `monospace` | Try `'Fira Code'`, `'JetBrains Mono'`, or `'Fantasque Sans Mono'`. |
+| `avatar_style` | string | `colored` | Options: `colored`, `grayscale`, `sepia`. |
+| `border_style`| string | `solid` | Options: `solid`, `dashed`, `dotted`, `none`. |
+| `border_color`| string | `default` | Give the border a specific CSS color. |
+| `bg_style` | string | `solid` | Options: `solid`, `transparent`, `glass`. |
+| `anim_speed` | number | `8` | The duration (in seconds) of the matrix rain animation. |
+| `hide_repos` | boolean | `false` | Pass `true` to hide the repository count. (Works for all base fields: `hide_name`, `hide_bio`, etc.) |
+
+### Adding Custom Fields
+You can add up to 5 custom key-value pairs (like your Discord tag, Spotify status, or Tech Stack) using `custom_key_X` and `custom_val_X`:
+
+```markdown
+?custom_key_1=Discord&custom_val_1=MyUsername%231234&custom_key_2=Stack&custom_val_2=Next.js%20%2B%20Tailwind
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Local Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Want to run the API or the Live Preview editor locally? 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/programmerbeast2004/Asciify.git
+   cd Asciify
+   ```
 
-## Learn More
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Set up Environment Variables:**
+   Create a `.env.local` file in the root directory and add your GitHub Personal Access Token to avoid API rate limits:
+   ```env
+   GITHUB_TOKEN=your_github_token_here
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the Live Preview editor in action!
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.
