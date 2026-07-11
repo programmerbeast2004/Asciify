@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2d1600"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="256" height="256" rx="48" fill="url(#bg)" stroke="#f59e0b" stroke-width="16"/>
+  
+  <!-- Huge 'A' taking up most of the space -->
+  <text x="44%" y="55%" font-family="Consolas, Monaco, 'Courier New', monospace" font-size="170" font-weight="bold" fill="#f59e0b" text-anchor="middle" dominant-baseline="middle">
+    A
+  </text>
+  
+  <!-- Giant Cursor Block next to it -->
+  <rect x="150" y="160" width="45" height="30" fill="#f59e0b" />
+</svg>
