@@ -77,13 +77,18 @@ export function generateSVG(asciiFrames: ColoredChar[][][], user: GithubUserData
   };
   const theme = themes[options.theme || 'dark'] || themes.dark;
   
+  let userTextColor = options.textColor;
+  if (userTextColor && /^[0-9A-Fa-f]{3,8}$/.test(userTextColor)) {
+    userTextColor = `#${userTextColor}`;
+  }
+
   const colors = {
     keyword: theme.keyword,
     variable: theme.variable,
-    punctuation: options.textColor || theme.text,
-    key: options.textColor || theme.text,
-    string: options.textColor || theme.text,
-    number: options.textColor || theme.variable,
+    punctuation: userTextColor || theme.text,
+    key: userTextColor || theme.text,
+    string: userTextColor || theme.text,
+    number: userTextColor || theme.variable,
   };
 
   // Build the lines of code

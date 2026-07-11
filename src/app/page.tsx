@@ -502,7 +502,19 @@ export default function Home() {
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <Palette className="w-4 h-4 text-white group-focus-within:text-white transition-colors" />
                   </div>
-                  <input name="text_color" value={formData.text_color} onChange={handleChange} className="block w-full bg-[#000] border border-amber-900 rounded-sm py-2.5 pl-9 pr-3 text-sm text-amber-500 font-mono focus:outline-none focus:border-amber-600 transition-all placeholder-white/40" placeholder="#a5d6ff" />
+                  <input name="text_color" value={formData.text_color} onChange={handleChange} className="block w-full bg-[#000] border border-amber-900 rounded-sm py-2.5 pl-9 pr-10 text-sm text-amber-500 font-mono focus:outline-none focus:border-amber-600 transition-all placeholder-white/40" placeholder="#a5d6ff" />
+                  <div className="absolute inset-y-0 right-0 pr-2 flex items-center">
+                    <div className="relative w-6 h-6 rounded-sm overflow-hidden border border-amber-900/50 hover:border-amber-500 transition-colors group-focus-within:border-amber-600">
+                      <input 
+                        type="color" 
+                        name="text_color" 
+                        value={/^#[0-9A-Fa-f]{6}$/i.test(formData.text_color) ? formData.text_color : '#d97706'} 
+                        onChange={handleChange} 
+                        className="absolute -top-2 -left-2 w-10 h-10 cursor-pointer opacity-0 z-10"
+                      />
+                      <div className="w-full h-full" style={{ backgroundColor: /^#?([0-9A-Fa-f]{3,8})$/.test(formData.text_color) ? (formData.text_color.startsWith('#') ? formData.text_color : `#${formData.text_color}`) : '#d97706' }}></div>
+                    </div>
+                  </div>
                   <div className="absolute -top-2 left-3 bg-[#0a0a0a] px-1 text-[10px] font-semibold uppercase tracking-wider text-white group-focus-within:text-white transition-colors">Custom Color</div>
                 </div>
 
